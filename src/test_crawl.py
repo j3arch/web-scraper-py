@@ -17,5 +17,11 @@ class TestCrawl(unittest.TestCase):
         expected = "boot.dev/path"
         self.assertEqual(actual, expected)
 
+    def test_normalize_url_capitals(self):
+        input_url = "BOOT.dev/path"
+        actual = normalize_url(input_url)
+        expected = "boot.dev/path"
+        self.assertEqual(actual, expected)
+
 if __name__ == "__main__":
     unittest.main()
