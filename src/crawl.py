@@ -26,3 +26,11 @@ def get_first_paragraph_from_html(html):
 
 def get_urls_from_html():
     pass
+
+
+def get_urls_from_html(html, base_url):
+    urls = []
+
+    return urls
+
+
