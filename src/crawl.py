@@ -7,13 +7,15 @@ def normalize_url(url):
     full_path = full_path.rstrip("/")
     return full_path.lower()
 
+def get_heading_from_html(html):
+    soup = BeautifulSoup(html, "html.parser")
+    h_tag = soup.find("h1") or soup.find("h2")
+    return h_tag.get_text(strip=True) if h_tag else ""
+
 def get_first_paragraph_from_html(html):
     pass
 
 
-
-def get_heading_from_html():
-    pass
 
 def get_urls_from_html():
     pass
