@@ -13,7 +13,14 @@ def get_heading_from_html(html):
     return h_tag.get_text(strip=True) if h_tag else ""
 
 def get_first_paragraph_from_html(html):
-    pass
+    soup = BeautifulSoup(html, "html.parser")
+
+    main_section = soup.find("main")
+    if main_section:
+        first_p = main_section.find("p")
+    else:
+        first_p = soup.find("p")
+    return first_p.get_text(strip=True) if first_p else ""
 
 
 
