@@ -33,4 +33,9 @@ def get_urls_from_html(html, base_url):
 
     return urls
 
-
+def extract_page_data(html, page_url):
+    return {
+        "url": page_url,
+        "heading": get_heading_from_html(html),
+        "first_paragraph": get_first_paragraph_from_html(html),
+    }
