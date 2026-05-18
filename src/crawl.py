@@ -1,18 +1,18 @@
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 
-def normalize_url(url):
+def normalize_url(url: str) -> str:
     parsed_url = urlparse(url)
     full_path = f"{parsed_url.netloc}{parsed_url.path}"
     full_path = full_path.rstrip("/")
     return full_path.lower()
 
-def get_heading_from_html(html):
+def get_heading_from_html(html: str) -> str:
     soup = BeautifulSoup(html, "html.parser")
     h_tag = soup.find("h1") or soup.find("h2")
     return h_tag.get_text(strip=True) if h_tag else ""
 
-def get_first_paragraph_from_html(html):
+def get_first_paragraph_from_html(html: str) -> str:
     soup = BeautifulSoup(html, "html.parser")
 
     main_section = soup.find("main")
