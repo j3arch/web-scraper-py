@@ -37,6 +37,12 @@ class TestCrawl(unittest.TestCase):
         expected = "Test Title"
         self.assertEqual(actual, expected)
 
+    def test_get_heading_from_html_h2_fallback(self) -> None:
+        input_body = "<html><body><h2>Fallback Title</h2></body></html>"
+        actual = get_heading_from_html(input_body)
+        expected = "Fallback Title"
+        self.assertEqual(actual, expected)
+
     def test_get_first_paragraph_from_html_main_priority(self) -> None:
         input_body = '''<html><body>
             <p>Outside paragraph.</p>
