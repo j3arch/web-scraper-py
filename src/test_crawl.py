@@ -7,6 +7,8 @@ from crawl import (
 
 
 class TestCrawl(unittest.TestCase):
+
+    # Url tests
     def test_normalize_url(self) -> None:
         input_url = "https://www.boot.dev/blog/path"
         actual = normalize_url(input_url)
@@ -31,6 +33,7 @@ class TestCrawl(unittest.TestCase):
         expected = "boot.dev/path"
         self.assertEqual(actual, expected)
 
+    # Get Heading tests
     def test_get_heading_from_html_basic(self) -> None:
         input_body = '<html><body><h1>Test Title</h1></body></html>'
         actual = get_heading_from_html(input_body)
@@ -49,6 +52,7 @@ class TestCrawl(unittest.TestCase):
         expected = "Whitespace Title"
         self.assertEqual(actual, expected)
 
+    # Get Paragraph tests
     def test_get_first_paragraph_from_html_main_priority(self) -> None:
         input_body = '''<html><body>
             <p>Outside paragraph.</p>
@@ -72,6 +76,7 @@ class TestCrawl(unittest.TestCase):
         expected = ""
         self.assertEqual(actual, expected)
     
+    # -
     
 
 if __name__ == "__main__":
