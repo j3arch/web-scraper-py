@@ -1,6 +1,5 @@
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup
-import requests
 
 def normalize_url(url: str) -> str:
     parsed_url = urlparse(url)
@@ -40,6 +39,3 @@ def extract_page_data(html, page_url):
         "heading": get_heading_from_html(html),
         "first_paragraph": get_first_paragraph_from_html(html),
     }
-
-def get_html(url: str) -> str:
-    pass
