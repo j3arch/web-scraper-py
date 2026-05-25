@@ -60,5 +60,11 @@ class TestCrawl(unittest.TestCase):
         expected = "Main paragraph."
         self.assertEqual(actual, expected)
 
+    def test_get_first_paragraph_from_html_no_paragraph(self) -> None:
+        input_body = "<html><body><h1>uwu</h1></body></html>"
+        actual = get_first_paragraph_from_html(input_body)
+        expected = ""
+        self.assertEqual(actual, expected)
+
 if __name__ == "__main__":
     unittest.main()
