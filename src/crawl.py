@@ -31,10 +31,8 @@ def get_urls_from_html(html: str, base_url: str) -> str:
     return url.get_text(strip=True) if link_tag else ""
 
 
-def get_urls_from_html(html, base_url):
-    urls = []
-
-    return urls
+def get_images_from_html(html, base_url):
+    pass
 
 def extract_page_data(html, page_url):
     return {
