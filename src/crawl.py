@@ -24,8 +24,11 @@ def get_first_paragraph_from_html(html: str) -> str:
 
 
 
-def get_urls_from_html():
-    pass
+def get_urls_from_html(html: str, base_url: str) -> str:
+    soup = BeautifulSoup(html, "html.parser")
+    link_tag = soup.find('a')
+    url = link_tag.get('href')
+    return url.get_text(strip=True) if link_tag else ""
 
 
 def get_urls_from_html(html, base_url):
