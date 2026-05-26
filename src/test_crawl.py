@@ -2,7 +2,8 @@ import unittest
 from crawl import (
     normalize_url,
     get_first_paragraph_from_html,
-    get_heading_from_html
+    get_heading_from_html,
+    get_urls_from_html
 )
 
 
@@ -76,8 +77,14 @@ class TestCrawl(unittest.TestCase):
         expected = ""
         self.assertEqual(actual, expected)
     
-    # -
+    # Get urls test
     
+    def test_get_urls_from_html_absolute(self):
+        input_url = "https://crawler-test.com"
+        input_body = '<html><body><a href="https://crawler-test.com"><span>Boot.dev</span></a></body></html>'
+        actual = get_urls_from_html(input_body, input_url)
+        expected = ["https://crawler-test.com"]
+        self.assertEqual(actual, expected)
 
 if __name__ == "__main__":
     unittest.main()
