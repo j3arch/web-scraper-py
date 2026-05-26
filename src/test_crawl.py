@@ -85,6 +85,13 @@ class TestCrawl(unittest.TestCase):
         actual = get_urls_from_html(input_body, input_url)
         expected = ["https://crawler-test.com"]
         self.assertEqual(actual, expected)
+    
+    def test_get_urls_from_html_empty(self) -> None:
+        input_url = ""
+        input_body = ""
+        actual = get_urls_from_html(input_body, input_url)
+        expected = []
+        self.assertEqual(actual, expected)
 
     
 
