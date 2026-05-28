@@ -69,7 +69,7 @@ def get_images_from_html(html: str, base_url: str) -> list[str]:
     
     return image_urls
 
-def extract_page_data(html: str, page_url: str):
+def extract_page_data(html: str, page_url: str) -> PageData:
     return {
         "url": page_url,
         "heading": get_heading_from_html(html),
