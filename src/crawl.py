@@ -66,4 +66,5 @@ def extract_page_data(html, page_url):
         "url": page_url,
         "heading": get_heading_from_html(html),
         "first_paragraph": get_first_paragraph_from_html(html),
+        "image_urls": get_images_from_html(html, page_url),
     }
