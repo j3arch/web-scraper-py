@@ -1,5 +1,13 @@
+from typing import TypedDict
 from urllib.parse import urlparse, urljoin
 from bs4 import BeautifulSoup, Tag
+
+class PageData(TypedDict):
+    url: str
+    heading: str
+    first_paragraph: str
+    outgoing_link: list[str]
+    image_links: list[str]
 
 def normalize_url(url: str) -> str:
     parsed_url = urlparse(url)
