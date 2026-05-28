@@ -43,9 +43,23 @@ def get_urls_from_html(html: str, base_url: str) -> list[str]:
     return urls
 
 
-def get_images_from_html(html, base_url):
+def get_images_from_html(html: str, base_url: str) -> list[str]:
+    image_urls = []
     soup = BeautifulSoup(html, "html.parser")
-    url_tag = soup.find('img')
+    images = soup.find_all("img")
+
+    for img in images:
+        if not isinstance(img, Tag):
+            continue
+        src = img.get("src")
+        if isinstance(src, str) and src:
+            try:
+                absolute_url = urljoin(base_url, src)
+                image_urls.append(absolute_url)
+            except Exception as e:
+                print(f"{str(e)}: {src}")
+    
+    return image_urls
 
 def extract_page_data(html, page_url):
     return {
