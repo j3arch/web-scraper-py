@@ -93,6 +93,13 @@ class TestCrawl(unittest.TestCase):
         expected = []
         self.assertEqual(actual, expected)
 
+    def get_urls_from_html_both(self) -> None:
+        input_url = "https://crawler-test.com"
+        input_body = '<html><body><a href="/path/one"><span>Boot.dev</span></a><a href="https://other.com/path/one"><span>Boot.dev</span></a></body></html>'
+        actual = get_urls_from_html(input_body, input_url)
+        expected = ["https://crawler-test.com/path/one", "https://other.com/path/one"]
+        self.assertEqual(actual, expected)
+
     
 
 if __name__ == "__main__":
