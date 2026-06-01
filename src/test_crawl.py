@@ -121,6 +121,13 @@ class TestCrawl(unittest.TestCase):
             "https://cdn.boot.dev/banner.jpg",
         ]
         self.assertEqual(actual, expected)
+
+    def test_get_images_from_html_empty(self) -> None:
+        input_url = ""
+        input_body = ""
+        actual = get_images_from_html(input_body, input_url)
+        expected = []
+        self.assertEqual(actual, expected)
     
     
     # test get data
