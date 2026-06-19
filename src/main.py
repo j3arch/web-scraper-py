@@ -1,4 +1,5 @@
 import sys
+from crawl import get_html
 
 def main() -> None:
     args = sys.argv
