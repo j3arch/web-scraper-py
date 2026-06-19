@@ -11,7 +11,6 @@ def main() -> None:
 
     base_url = args[1]
     print(f"starting crawl of: {base_url}...")
-    # print("Hello from web-scraper-py!")
 
 
 if __name__ == "__main__":
