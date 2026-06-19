@@ -1,6 +1,7 @@
 from typing import TypedDict
 from urllib.parse import urlparse, urljoin
 from bs4 import BeautifulSoup, Tag
+import requests
 
 class PageData(TypedDict):
     url: str
@@ -77,3 +78,7 @@ def extract_page_data(html: str, page_url: str) -> PageData:
         "outgoing_links": get_urls_from_html(html, page_url),
         "image_urls": get_images_from_html(html, page_url),
     }
+
+def get_html(url: str) -> str:
+    response = requests.get(url, headers={"User-Agent": "BootCrawler/1.0"})
+    return response.text
