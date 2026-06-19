@@ -13,6 +13,9 @@ def main() -> None:
     base_url = args[1]
     print(f"starting crawl of: {base_url}...")
 
-
+    html = get_html(base_url)
+    print(html)
+    sys.exit(0)
+    
 if __name__ == "__main__":
     main()
