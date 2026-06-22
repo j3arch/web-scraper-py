@@ -150,10 +150,10 @@ class TestCrawl(unittest.TestCase):
         }
         self.assertEqual(actual, expected)
 
-    def extract_page_data_main(self):
+    def extract_page_data_main(self) -> None:
         pass
 
-    def extract_page_data_missing(self):
+    def extract_page_data_missing(self) -> None:
         self
 
 if __name__ == "__main__":
