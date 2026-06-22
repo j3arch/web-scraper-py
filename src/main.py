@@ -13,7 +13,12 @@ def main() -> None:
     base_url = args[1]
     print(f"starting crawl of: {base_url}...")
 
-    html = get_html(base_url)
+    try:
+        html = get_html(base_url)
+    except Exception as e:
+        print(f"Error fetching HTML from {base_url}: {str(e)}")
+        
+
     print(html)
     sys.exit(0)
     
