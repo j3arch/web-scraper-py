@@ -17,7 +17,7 @@ def main() -> None:
         html = get_html(base_url)
     except Exception as e:
         print(f"Error fetching HTML from {base_url}: {str(e)}")
-        
+        sys.exit(1)
 
     print(html)
     sys.exit(0)
