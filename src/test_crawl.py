@@ -163,8 +163,18 @@ class TestCrawl(unittest.TestCase):
         self.assertEqual(actual["heading"], "Main Title")
         self.assertEqual(actual["first_paragraph"], "Main paragraph content.")
 
-    def extract_page_data_missing(self) -> None:
-        pass
+    def test_extract_page_data_missing_elements(self) -> None:
+        input_url = "https://crawler-test.com"
+        input_body = "<html><body><div>No h1, p, links, or images</div></body></html>"
+        actual = extract_page_data(input_body, input_url)
+        expected = {
+            "url": "https://crawler-test.com",
+            "heading": "",
+            "first_paragraph": "",
+            "outgoing_links": [],
+            "image_urls": [],
+        }
+        self.assertEqual(actual, expected)
 
 if __name__ == "__main__":
     unittest.main()
