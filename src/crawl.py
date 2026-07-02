@@ -79,6 +79,9 @@ def extract_page_data(html: str, page_url: str) -> PageData:
         "image_urls": get_images_from_html(html, page_url),
     }
 
+def crawl_page(base_url: str, current_url: str| None = None, page_data: dict[str, PageData] | None = None) -> dict[str, PageData]:
+    pass
+
 def get_html(url: str) -> str:
     try:
         response = requests.get(url, headers={"User-Agent": "BootCrawler/1.0"})
