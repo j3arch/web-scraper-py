@@ -80,7 +80,10 @@ def extract_page_data(html: str, page_url: str) -> PageData:
     }
 
 def crawl_page(base_url: str, current_url: str| None = None, page_data: dict[str, PageData] | None = None) -> dict[str, PageData]:
-    pass
+    if current_url is None:
+        current_url = base_url
+    if page_data is None:
+        page_data = {}
 
 def get_html(url: str) -> str:
     try:
