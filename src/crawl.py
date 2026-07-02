@@ -85,6 +85,16 @@ def crawl_page(base_url: str, current_url: str| None = None, page_data: dict[str
     if page_data is None:
         page_data = {}
 
+    base_url_obj = urlparse(base_url)
+    current_url_obj = urlparse(current_url)
+    if current_url_obj.netloc != base_url_obj.netloc:
+        return page_data
+    
+    normalized_url = normalize_url(current_url)
+
+    if normalized_url in page_data:
+        return page_data
+
 def get_html(url: str) -> str:
     try:
         response = requests.get(url, headers={"User-Agent": "BootCrawler/1.0"})
