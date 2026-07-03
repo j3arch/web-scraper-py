@@ -79,8 +79,7 @@ def extract_page_data(html: str, page_url: str) -> PageData:
         "image_urls": get_images_from_html(html, page_url),
     }
 
-# def crawl_page(base_url: str, current_url: str| None = None, page_data: dict[str, PageData] | None = None) -> dict[str, PageData]:
-def crawl_page(base_url, current_url=None, page_data=None):
+def crawl_page(base_url: str, current_url: str| None = None, page_data: dict[str, PageData] | None = None) -> dict[str, PageData]:
     if current_url is None:
         current_url = base_url
     if page_data is None:
