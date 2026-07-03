@@ -101,7 +101,7 @@ def crawl_page(base_url: str, current_url: str| None = None, page_data: dict[str
         return page_data
     
     page_info = extract_page_data(html, current_url)
-    page_data[normalize_url] = page_info
+    page_data[normalized_url] = page_info
 
     next_urls = get_urls_from_html(html, base_url)
     for next_url in next_urls:
