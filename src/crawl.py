@@ -95,6 +95,11 @@ def crawl_page(base_url, current_url=None, page_data=None):
 
     if normalized_url in page_data:
         return page_data
+    
+    print(f"crawling{current_url}")
+    html = safe_get_html(current_url)
+    if html is None:
+        return page_data
 
 def get_html(url: str) -> str:
     try:
