@@ -1,7 +1,10 @@
+import asyncio
+from types import TracebackType
 from typing import TypedDict
 from urllib.parse import urlparse, urljoin
+
+import aiohttp
 from bs4 import BeautifulSoup, Tag
-import requests
 
 class PageData(TypedDict):
     url: str
