@@ -137,4 +137,10 @@ def safe_get_html(url: str) -> str | None:
 
 class AsyncCrawler:
     def __init__(self, base_url: str) -> None:
-        pass
+        self.base_url = base_url
+        self.base_domain = urlparse(base_url).netloc
+        self.page_data: dict[str, PageData] = {}
+        self.lock = asyncio.Lock()
+        self.max_concurrency = 3
+        self.semaphore = asyncio.Semaphore(self.max_concurrency)
+        self.session: aiohttp.ClientSession | None = None
