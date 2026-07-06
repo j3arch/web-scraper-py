@@ -144,3 +144,9 @@ class AsyncCrawler:
         self.max_concurrency = 3
         self.semaphore = asyncio.Semaphore(self.max_concurrency)
         self.session: aiohttp.ClientSession | None = None
+
+    async def __aenter__(self) -> "AsyncCrawler":
+        pass
+
+    async def __aexit__(self, exc_type, exc, tb) -> None:
+        pass
