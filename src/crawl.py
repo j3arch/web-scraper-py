@@ -146,7 +146,8 @@ class AsyncCrawler:
         self.session: aiohttp.ClientSession | None = None
 
     async def __aenter__(self) -> "AsyncCrawler":
-        pass
+        self.session = aiohttp.ClientSession()
+        return self
 
     async def __aexit__(self, exc_type, exc, tb) -> None:
         pass
