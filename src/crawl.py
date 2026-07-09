@@ -149,5 +149,11 @@ class AsyncCrawler:
         self.session = aiohttp.ClientSession()
         return self
 
-    async def __aexit__(self, exc_type, exc, tb) -> None:
+    async def __aexit__(self, exc_type:type[BaseException] | None, exc_val: BaseException | None, exc_tb: TracebackType | None) -> None:
+        assert self.session is not None
         await self.session.close()
+
+    
+
+
+
