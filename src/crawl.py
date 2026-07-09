@@ -150,4 +150,4 @@ class AsyncCrawler:
         return self
 
     async def __aexit__(self, exc_type, exc, tb) -> None:
-        pass
+        await self.session.close()
