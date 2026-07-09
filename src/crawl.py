@@ -153,7 +153,7 @@ class AsyncCrawler:
         assert self.session is not None
         await self.session.close()
 
-    async def add_page_visit(self, normalized_url):
+    async def add_page_visit(self, normalized_url: str) -> bool:
         async with self.lock:
             if normalized_url in self.page_data:
                 return False
