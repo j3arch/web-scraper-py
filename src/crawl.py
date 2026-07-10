@@ -159,6 +159,11 @@ class AsyncCrawler:
                 return False
             else:
                 return True
+            
+
+    async def crawl_site_async(base_url):
+        async with AsyncCrawler(base_url) as crawler:
+            return await crawler.crawl()
 
 
 
