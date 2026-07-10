@@ -160,6 +160,12 @@ class AsyncCrawler:
             else:
                 return True
             
+    async def get_html(self, url: str) -> str | None:
+        pass
+
+    async def crawl_page(self, current_url: str) -> None:
+        pass
+            
 
     async def crawl_site_async(base_url: str) -> dict[str, PageData]:
         async with AsyncCrawler(base_url) as crawler:
