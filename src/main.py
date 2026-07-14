@@ -1,7 +1,8 @@
 import sys
+import asyncio
 from crawl import crawl_page
 
-def main() -> None:
+async def main() -> None:
     args = sys.argv
     if len(args) < 2:
         print("no website provided")
@@ -21,4 +22,4 @@ def main() -> None:
     sys.exit(0)
     
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
