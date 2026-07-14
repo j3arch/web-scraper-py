@@ -167,9 +167,9 @@ class AsyncCrawler:
         pass
             
 
-    async def crawl_site_async(base_url: str) -> dict[str, PageData]:
-        async with AsyncCrawler(base_url) as crawler:
-            return await crawler.crawl()
+async def crawl_site_async(base_url: str) -> dict[str, PageData]:
+    async with AsyncCrawler(base_url) as crawler:
+        return await crawler.crawl()
 
 
 
