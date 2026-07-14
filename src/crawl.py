@@ -166,7 +166,7 @@ class AsyncCrawler:
     async def crawl_page(self, current_url: str) -> None:
         pass
 
-    async def crawl(self):
+    async def crawl(self) -> dict[str, PageData]:
         await self.crawl_page(self.base_url)
         return self.page_data
             
