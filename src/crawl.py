@@ -1,7 +1,7 @@
 import asyncio
 from types import TracebackType
 from typing import TypedDict
-from urllib.parse import urlparse, urljoin
+from urllib.parse import urljoin, urlsplit
 
 import aiohttp
 from bs4 import BeautifulSoup, Tag
@@ -14,7 +14,7 @@ class PageData(TypedDict):
     image_links: list[str]
 
 def normalize_url(url: str) -> str:
-    parsed_url = urlparse(url)
+    parsed_url = urlsplit(url)
     full_path = f"{parsed_url.netloc}{parsed_url.path}"
     full_path = full_path.rstrip("/")
     return full_path.lower()
@@ -138,7 +138,7 @@ def safe_get_html(url: str) -> str | None:
 class AsyncCrawler:
     def __init__(self, base_url: str) -> None:
         self.base_url = base_url
-        self.base_domain = urlparse(base_url).netloc
+        self.base_domain = urlsplit(base_url).netloc
         self.page_data: dict[str, PageData] = {}
         self.lock = asyncio.Lock()
         self.max_concurrency = 3
