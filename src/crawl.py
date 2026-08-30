@@ -133,7 +133,9 @@ class AsyncCrawler:
         if self.session is None:
             return None
         try:
-            async with self.session.get(url) as response:
+            async with self.session.get(
+                url, headers={"User-Agent": "BootCrawler/1.0"}
+            ) as response:
                 if response.status > 399:
                     print(f"Error: HTTP {response.status} for {url}")
                     return None
@@ -202,7 +204,6 @@ async def crawl_site_async(
 ) -> dict[str, PageData]:
     async with AsyncCrawler(base_url, max_concurrency, max_pages) as crawler:
         return await crawler.crawl()
-
 
 
 
