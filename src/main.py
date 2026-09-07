@@ -1,5 +1,5 @@
 def main() -> None:
-    print("Hello from Web Crawler in Python!")
+    print("Hello, World!")
 
 
 if __name__ == "__main__":
