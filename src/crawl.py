@@ -6,3 +6,9 @@ def normalize_url(url: str) -> str:
     full_path = full_path.rstrip("/")
     return full_path.lower()
 
+def get_heading_from_html(html):
+    pass
+
+def get_first_paragraph_from_html(html):
+    pass
+
