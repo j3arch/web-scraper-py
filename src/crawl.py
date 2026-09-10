@@ -10,7 +10,7 @@ def normalize_url(url: str) -> str:
 def get_heading_from_html(html: str) -> str:
     soup = BeautifulSoup(html, "html.parser")
     h_tag = soup.find("h1") or soup.find("h2")
-    return h_tag.get_text() if isinstance(h_tag, Tag) else ""
+    return h_tag.get_text(strip=True) if isinstance(h_tag, Tag) else ""
 
 def get_first_paragraph_from_html(html: str) -> str:
     soup = BeautifulSoup(html, "html.parser")
@@ -21,5 +21,5 @@ def get_first_paragraph_from_html(html: str) -> str:
     else:
         first_p = soup.find("p")
 
-    return first_p.get_text() if isinstance(first_p, Tag) else ""
+    return first_p.get_text(strip=True) if isinstance(first_p, Tag) else ""
 
