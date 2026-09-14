@@ -23,3 +23,9 @@ def get_first_paragraph_from_html(html: str) -> str:
 
     return first_p.get_text(strip=True) if isinstance(first_p, Tag) else ""
 
+def get_urls_from_html(html, base_url):
+    pass
+
+def get_images_from_html(html, base_url):
+    pass
+
