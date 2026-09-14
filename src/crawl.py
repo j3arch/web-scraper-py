@@ -23,7 +23,7 @@ def get_first_paragraph_from_html(html: str) -> str:
 
     return first_p.get_text(strip=True) if isinstance(first_p, Tag) else ""
 
-def get_urls_from_html(html, base_url):
+def get_urls_from_html(html: str, base_url: str) -> list[str]:
     urls = []
     soup = BeautifulSoup(html, "html.parser")
     anchors = soup.find_all("a")
