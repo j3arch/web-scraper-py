@@ -1,5 +1,9 @@
 from urllib.parse import urljoin, urlsplit
 from bs4 import BeautifulSoup, Tag
+from typing import TypedDict
+
+class PageData(TypedDict):
+    pass
 
 def normalize_url(url: str) -> str:
     parsed_url = urlsplit(url)
@@ -59,3 +63,6 @@ def get_images_from_html(html: str, base_url: str) -> list[str]:
 
     return image_urls
 
+
+def extract_page_data(html, page_url):
+    pass
