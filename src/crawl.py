@@ -41,7 +41,7 @@ def get_urls_from_html(html: str, base_url: str) -> list[str]:
 
     return urls
 
-def get_images_from_html(html: str, base_url: str):
+def get_images_from_html(html: str, base_url: str) -> list[str]:
     image_urls = []
     soup = BeautifulSoup(html, "html.parser")
     images = soup.find_all("img")
