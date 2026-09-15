@@ -37,6 +37,7 @@ class TestCrawl(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     # Get Heading tests
+    
     def test_get_heading_from_html_basic(self) -> None:
         input_body = '<html><body><h1>Test Title</h1></body></html>'
         actual = get_heading_from_html(input_body)
@@ -49,7 +50,7 @@ class TestCrawl(unittest.TestCase):
         expected = "Fallback Title"
         self.assertEqual(actual, expected)
 
-    def test_get_heading_from_html_whitespaces(self) -> None:
+    def test_get_heading_from_html_with_whitespace(self) -> None:
         input_body = "<html><body><h1>   Whitespace Title   </h1></body></html>"
         actual = get_heading_from_html(input_body)
         expected = "Whitespace Title"
@@ -103,7 +104,7 @@ class TestCrawl(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     # Get image tests
-
+    
     def test_get_images_from_html_relative(self):
         input_url = "https://crawler-test.com"
         input_body = '<html><body><img src="/logo.png" alt="Logo"></body></html>'
@@ -152,13 +153,13 @@ class TestCrawl(unittest.TestCase):
 
     def test_extract_page_data_main_section(self) -> None:
         input_url = "https://crawler-test.com"
-        input_body = """<html><body>
+        input_body = """<html><body>                                                         
             <nav><p>Navigation paragraph</p></nav>
             <main>
                 <h1>Main Title</h1>
                 <p>Main paragraph content.</p>
-            </main>
-        </body></html>"""
+            </main>                            
+        </body></html> """                                                                 
         actual = extract_page_data(input_body, input_url)
         self.assertEqual(actual["heading"], "Main Title")
         self.assertEqual(actual["first_paragraph"], "Main paragraph content.")
@@ -175,6 +176,7 @@ class TestCrawl(unittest.TestCase):
             "image_urls": [],
         }
         self.assertEqual(actual, expected)
+
 
 if __name__ == "__main__":
     unittest.main()
