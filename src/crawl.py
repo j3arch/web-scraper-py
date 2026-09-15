@@ -6,7 +6,7 @@ class PageData(TypedDict):
     url: str
     heading: str
     first_paragraph: str
-    outgoing_link: list[str]
+    outgoing_links: list[str]
     image_urls: list[str]
 
 def normalize_url(url: str) -> str:
