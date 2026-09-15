@@ -3,7 +3,11 @@ from bs4 import BeautifulSoup, Tag
 from typing import TypedDict
 
 class PageData(TypedDict):
-    pass
+    url: str
+    heading: str
+    first_paragraph: str
+    outgoing_link: list[str]
+    image_urls: list[str]
 
 def normalize_url(url: str) -> str:
     parsed_url = urlsplit(url)
