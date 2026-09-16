@@ -77,5 +77,8 @@ def extract_page_data(html: str, page_url: str) -> PageData:
         "image_urls": get_images_from_html(html, page_url),
     }
 
-def get_html(url):
+def get_html(url: str) -> str:
+    pass
+
+def safe_get_html(url: str) -> str | None:
     pass
