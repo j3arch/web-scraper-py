@@ -76,3 +76,6 @@ def extract_page_data(html: str, page_url: str) -> PageData:
         "outgoing_links": get_urls_from_html(html, page_url),
         "image_urls": get_images_from_html(html, page_url),
     }
+
+def get_html(url):
+    pass
