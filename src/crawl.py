@@ -87,6 +87,9 @@ def get_html(url: str) -> str:
     if response.status_code > 399:
         raise Exception(f"got HTTP error: {response.status_code} {response.reason}")
 
+    content_type = response.headers.get("content-type", "")
+    if "text/html" not in content_type:
+        raise Exception(f"got non-HTML response: {content_type}")
 
     return response.text
 
