@@ -84,6 +84,9 @@ def get_html(url: str) -> str:
     except Exception as e:
         raise Exception(f"network error while fetching {url}: {e}")
 
+    if response.status_code > 399:
+        raise Exception(f"got HTTP error: {response.status_code} {response.reason}")
+
 
     return response.text
 
