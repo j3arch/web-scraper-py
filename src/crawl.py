@@ -94,4 +94,8 @@ def get_html(url: str) -> str:
     return response.text
 
 def safe_get_html(url: str) -> str | None:
-    pass
+    try:
+        return get_html(url)
+    except Exception as e:
+        print(f"{e}")
+        return None
