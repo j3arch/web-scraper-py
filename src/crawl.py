@@ -1,6 +1,7 @@
 from urllib.parse import urljoin, urlsplit
 from bs4 import BeautifulSoup, Tag
 from typing import TypedDict
+import requests
 
 class PageData(TypedDict):
     url: str
@@ -78,7 +79,13 @@ def extract_page_data(html: str, page_url: str) -> PageData:
     }
 
 def get_html(url: str) -> str:
-    pass
+    try:
+        response = requests.get(url, headers={"User-Agent": "BootCrawler/1.0"})
+    except Exception as e:
+        raise Exception(f"network error while fetching {url}: {e}")
+
+
+    return response.text
 
 def safe_get_html(url: str) -> str | None:
     pass
