@@ -90,7 +90,7 @@ def crawl_page(base_url: str, current_url: str | None=None, page_data: dict[str,
 
 def get_html(url: str) -> str:
     try:
-        response = requests.get(url, headers={"User-Agent": "BootCrawler/1.0"})
+        response = requests.get(url)
     except Exception as e:
         raise Exception(f"network error while fetching {url}: {e}")
 
