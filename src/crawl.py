@@ -89,6 +89,11 @@ def crawl_page(base_url: str, current_url: str | None=None, page_data: dict[str,
     if current_url_obj.netloc != base_url_obj.netloc:
         return page_data
 
+    normalized_url = normalize_url(current_url)
+
+    if normalize_url in page_data:
+        return page_data
+
     return page_data
 
 def get_html(url: str) -> str:
