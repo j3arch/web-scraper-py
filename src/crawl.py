@@ -99,6 +99,13 @@ def crawl_page(base_url: str, current_url: str | None=None, page_data: dict[str,
     if html is None:
         return page_data
 
+    page_info = extract_page_data(html, current_url)
+    page_data[normalize_url] = page_info
+
+    next_urls = page_info["outgoing_links"]
+    for next_url in next_urls:
+        page_data = crawl_page(base_url, next_url, page_data)
+
     return page_data
 
 def get_html(url: str) -> str:
