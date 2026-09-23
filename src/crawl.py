@@ -1,7 +1,7 @@
 from urllib.parse import urljoin, urlsplit
 from bs4 import BeautifulSoup, Tag
 from typing import TypedDict
-import requests
+import asyncio
 
 class PageData(TypedDict):
     url: str
@@ -78,6 +78,7 @@ def extract_page_data(html: str, page_url: str) -> PageData:
         "image_urls": get_images_from_html(html, page_url),
     }
 
+'''
 def crawl_page(base_url: str, current_url: str | None=None, page_data: dict[str, PageData] | None=None) -> dict[str, PageData]:
     if current_url is None:
         current_url = base_url
@@ -129,3 +130,9 @@ def safe_get_html(url: str) -> str | None:
     except Exception as e:
         print(f"{e}")
         return None
+
+'''
+
+class AsyncCrawler:
+    def __init__(self):
+        pass
