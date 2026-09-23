@@ -152,3 +152,6 @@ class AsyncCrawler:
 
     async def __aexit__(self, exc_type, exc, tb):
         pass
+
+    async def add_page_visit(self, normalized_url):
+        pass
