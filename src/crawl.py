@@ -164,3 +164,6 @@ class AsyncCrawler:
 
     async def crawl(self) -> dict[str, PageData]:
         pass
+
+async def crawl_site_async(base_url: str) -> dict[str, PageData]:
+    pass
