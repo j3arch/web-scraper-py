@@ -155,3 +155,12 @@ class AsyncCrawler:
 
     async def add_page_visit(self, normalized_url):
         pass
+
+    async def get_html(self, url):
+        pass
+
+    async def crawl_page(self, current_url):
+        pass
+
+    async def crawl(self):
+        pass
