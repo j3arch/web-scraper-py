@@ -153,14 +153,14 @@ class AsyncCrawler:
     async def __aexit__(self, exc_type, exc, tb):
         pass
 
-    async def add_page_visit(self, normalized_url):
+    async def add_page_visit(self, normalized_url: str) -> bool:
         pass
 
-    async def get_html(self, url):
+    async def get_html(self, url: str) -> str | None:
         pass
 
-    async def crawl_page(self, current_url):
+    async def crawl_page(self, current_url: str) -> None:
         pass
 
-    async def crawl(self):
+    async def crawl(self) -> dict[str, PageData]:
         pass
